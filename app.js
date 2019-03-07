@@ -4,9 +4,10 @@ const expHand    =      require('express-handlebars');
 const mongoose   =      require('mongoose');
 const request    =      require('request');
 
+
 const app = express();
 
-var urls = ["https://www.google.com", "https://www.yahoo.com", "https://www.zsediqyar.com"];
+var urlList = ["https://www.google.com", "https://www.yahoo.com", "https://www.zsediqyar.com"];
 
 
 //setup
@@ -15,26 +16,21 @@ app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-function zaki() {
-    alert("noooo");
-}
 
 
-var result;
+// function zaki() {
+//     request('https://www.google.com', function(error, response, body) {
 
-function zaki() {
-    request('https://www.google.com', function(error, response, body) {
+//         result = response.statusCode;
 
-        result = response.statusCode;
-
-        if(!error && response.statusCode == 200) {
-            document.write("The Site Is Up");
-            console.log(result);
-        } else {
-            console.log("code red");
-        }
-    });
-}
+//         if(!error && response.statusCode == 200) {
+//             document.write("The Site Is Up");
+//             console.log(result);
+//         } else {
+//             console.log("code red");
+//         }
+//     });
+// }
 
 
 // app.get("/", function (req, res, next) {
@@ -45,15 +41,41 @@ function zaki() {
 
 
 
-app.use(function (req, res) {
-    request("https://www.zsediqyar.com", function(error, response, body) {
-        if(!error && response.statusCode == 200) {
-            res.render("index", {status: "up"});
-        } else {
-            res.render("index", {status: "down"})
-        }
-    })
-});
+// app.use(function (req, res) {
+//     for (var i = 0; i < urls.length; i++);
+//     request(urls[i], function(error, response, body) {
+//         if(!error && response.statusCode == 200) {
+//             res.render("index", {status: "up"});
+//         } else {
+//             res.render("index", {status: "down"})
+//         }
+//     })
+// });
+
+
+
+
+// function getStatus(url) {
+//     return new Promise((resolve, reject) => {
+//         request(url, function(error, response, body) {
+//             resolve({site: url, status: (!error && response.statusCode == 200) ? "OK": "Down: " + error.message});
+//         });
+//     })   
+// }
+
+// let promiseList = urlList.map(url => getStatus(url));
+
+// Promise.all(promiseList).then(resultList => {
+//     resultList.forEach(result => console.log("Result: ", result));
+// });
+
+
+
+
+
+
+
+
 
 
 
