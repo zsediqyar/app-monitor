@@ -33,7 +33,7 @@ app.get("/home", function(req, res) {
 });
 
 app.get("/home/new", function(req, res) {
-    res.send("add new site");
+    res.render("new");
 });
 
 

@@ -10,7 +10,7 @@ html, body {
 }
 
 /*
-LOGIN PAGE CUSTOM CSS
+LOGIN FILE CUSTOM CSS
 =====================
 */
 
@@ -87,4 +87,22 @@ HEADER PARTIAL CUSTOM CSS
 }
 .header-nav .logout {
     color: var(--red) !important;
+}
+
+
+/*
+INDEX FILE CUSTOM CSS
+=====================
+*/
+.homepage-buttons {
+    margin-top: 2em;
+    text-align: center;
+}
+.homepage-buttons .btn.btn-primary {
+    width: 70% !important;
+    height: 50px !important;
+    padding: .8em 0;
+    margin: .5em 0;
+    color: var(--white) !important;
+    font-size: 15px !important;
 }
