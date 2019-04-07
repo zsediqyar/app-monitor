@@ -10,7 +10,7 @@ html, body {
 }
 
 /*
-LOGIN FILE CUSTOM CSS
+LOGIN PAGE CUSTOM CSS
 =====================
 */
 
@@ -72,26 +72,7 @@ input::placeholder {
 
 
 /*
-HEADER PARTIAL CUSTOM CSS
-=====================
-*/
-
-.header-nav {
-    background: var(--blue) !important;
-    height: 80px;
-    padding-top: 1em;
-}
-
-.header-nav .userName {
-    color: var(--yellow) !important;
-}
-.header-nav .logout {
-    color: var(--red) !important;
-}
-
-
-/*
-INDEX FILE CUSTOM CSS
+INDEX PAGE CUSTOM CSS
 =====================
 */
 .homepage-buttons {
@@ -106,3 +87,9 @@ INDEX FILE CUSTOM CSS
     color: var(--white) !important;
     font-size: 15px !important;
 }
+
+
+/*
+NEW PAGE CUSTOM CSS
+=====================
+*/
