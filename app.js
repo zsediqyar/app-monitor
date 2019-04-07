@@ -13,10 +13,15 @@ var urlList = ["https://www.google.com", "https://www.yahoo.com", "https://www.z
 
 
 //setup
-app.engine('handlebars', expHand({defaultLayout: 'main'}));
+app.engine('handlebars', expHand({
+    defaultLayout: 'main',
+    partialsDir: __dirname + '/views/partials'
+}));
 app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+
+
 
 
 app.get("/", function(req, res) {
@@ -24,7 +29,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/home", function(req, res) {
-    res.send("main page");
+    res.render("index");
 });
 
 app.get("/home/new", function(req, res) {
