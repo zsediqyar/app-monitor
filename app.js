@@ -15,7 +15,7 @@ var urlList = ["https://www.google.com", "https://www.yahoo.com", "https://www.z
 //setup
 app.engine('handlebars', expHand({
     defaultLayout: 'main',
-    partialsDir: __dirname + '/views/partials'
+    partialsDir: __dirname + '/views/partials/'
 }));
 app.set('view engine', 'handlebars');
 app.use(express.static("public"));
@@ -36,8 +36,9 @@ app.get("/home/new", function(req, res) {
     res.render("new");
 });
 
-
-
+app.get("/home/allsites", function(req, res) {
+    res.render("allsites");
+})
 
 
 
