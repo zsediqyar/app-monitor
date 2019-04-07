@@ -88,8 +88,61 @@ INDEX PAGE CUSTOM CSS
     font-size: 15px !important;
 }
 
+/*
+HEADER PARTIALS CUSTOM CSS
+=====================
+*/
+.header-nav {
+    background: var(--blue) !important;
+    height: 80px;
+    padding-top: 1em;
+}
+
+.header-nav .userName {
+    color: var(--yellow) !important;
+}
+.header-nav .logout {
+    color: var(--red) !important;
+}
 
 /*
 NEW PAGE CUSTOM CSS
 =====================
 */
+.form-submit .btn.btn-primary {
+    background: var(--blue);
+    border-color: var(--blue);
+    width: 100px;
+}
+
+.center-p {
+    text-align: center;
+}
+.new-p {
+    margin-top: 3em;
+}
+
+#newForm input {
+    border-color: rgba(0,0,0, 0.2) !important;
+    background: rgba(0,0,0, 0.2) !important;
+}
+#newForm input:focus::placeholder {
+    color: var(--red);
+}
+#example {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: gray;
+    font-weight: bold;
+}
+
+.new-form {
+    padding: 0 1em !important;
+    margin: 0 auto !important;
+}
+@media (min-width: 768px) {
+    .new-form {
+        width: 500px !important;
+    }
+}

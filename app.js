@@ -13,9 +13,7 @@ var urlList = ["https://www.google.com", "https://www.yahoo.com", "https://www.z
 
 
 //setup
-app.engine('handlebars', expHand({
-    defaultLayout: 'main',
-    partialsDir: __dirname + '/views/partials/'
+app.engine('handlebars', expHand({defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 app.use(express.static("public"));
