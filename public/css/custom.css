@@ -1,0 +1,74 @@
+:root {
+    --yellow: #FFB045;
+    --red: #D3461C;
+    --blue:#212529;
+    --white: #F8F8F8;
+}
+html, body {
+    width: 100%;
+    background: var(--white);
+}
+
+/*
+LOGIN PAGE CUSTOM CSS
+=====================
+*/
+
+.page-title {
+    margin-top: 50px;
+}
+.jumbotron {
+    background: none;
+    text-align: center;
+    margin: 0;
+    color: var(--blue);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.login-form {
+    padding: 0 1em;
+    margin: 0 auto;
+}
+
+input:active {
+    border-color: rgba(211,70,28, 0.5) !important;
+}
+input:focus{
+    border-color: rgba(211,70,28, 0.5) !important;
+    box-shadow: 0 0 0 0.08rem rgba(211,70,28, 0.25) !important;
+    background: rgba(211,70,28, 0.25) !important;
+}
+input:focus::placeholder {
+    color: var(--blue) !important;
+}
+input {
+    border-color: var(--red) !important;
+}
+input::placeholder {
+    font-size: 12px !important;
+}
+
+.login-form input {
+    color: var(--red) !important;
+    letter-spacing: 1px !important;
+}
+.form-submit {
+    margin: 0;
+    text-align: center;
+}
+.btn.btn-primary {
+    background: var(--blue);
+    border-color: var(--blue);
+    width: 100px;
+}
+
+@media (min-width: 768px) {
+    .login-form {
+        width: 500px !important;
+    }
+}
+
+
+/*
+MAIN PAGE CUSTOM CSS
+=====================
+*/

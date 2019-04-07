@@ -9,7 +9,6 @@ const request    =      require('request');
 const app = express();
 
 
-
 var urlList = ["https://www.google.com", "https://www.yahoo.com", "https://www.zsediqyar.com"];
 
 
@@ -18,6 +17,26 @@ app.engine('handlebars', expHand({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+
+
+app.get("/", function(req, res) {
+    res.render("login");
+});
+
+app.get("/home", function(req, res) {
+    res.send("main page");
+});
+
+app.get("/home/new", function(req, res) {
+    res.send("add new site");
+});
+
+
+
+
+
+
+
 
 
 // function zaki() {
@@ -39,33 +58,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-// app.get("/", function (req, res) {
-//     result = request("https://www.google.com",
-//         function(error, response, body) {
-//         if(!error && response.statusCode == 200) {
-//             res.render("index", {status: "up"});
-//         }   else {
-//             res.render("index", {status: "down"});
-//         }
-//     });
-
-//     cron.schedule('* * * * *', function() {
-//         console.log("hi from the main route");
-//     });
-// });
 
 
-
-// app.use(function (req, res) {
-//     for (var i = 0; i < urls.length; i++);
-//     request(urls[i], function(error, response, body) {
-//         if(!error && response.statusCode == 200) {
-//             res.render("index", {status: "up"});
-//         } else {
-//             res.render("index", {status: "down"})
-//         }
-//     })
-// });
 
 
 
