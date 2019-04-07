@@ -6,12 +6,12 @@
             <p class="center-p new-p">Add a New Site to the Monitoring Tool</p>
 
             <div class="new-form">
-                <form action="" method="POST" id="newForm">
+                <form action="/home/allsites" method="POST" id="newForm">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Site Name">
+                        <input name="sitesInfo[name]" class="form-control" type="text" placeholder="Site Name">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Site URL (Include http://)">
+                        <input name="sitesInfo[url]" class="form-control" type="text" placeholder="Site URL (Include http://)">
                         <label id="example"><span style="color:#D3461C;">e.g: </span>https://www.example.com</label>
                     </div>
                     <div class="form-submit">

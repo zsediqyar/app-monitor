@@ -30,3 +30,7 @@
         </div>
     </div>
 </div>
+{{#each sites}}
+<a href="/home/allsites/{{sites._id}}/edit"><p>{{this.name}}</p></a>
+<p>{{this.url}}</p>
+{{/each}}

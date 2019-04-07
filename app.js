@@ -8,8 +8,19 @@ const request    =      require('request');
 
 const app = express();
 
+//MONGO DB CONNECTION
+mongoose.connect('mongodb://localhost:27017/sites_db');
 
-var urlList = ["https://www.google.com", "https://www.yahoo.com", "https://www.zsediqyar.com"];
+//MONGO DB SCHEMA
+const sitesSchema = new mongoose.Schema ({
+    name: String,
+    url: String
+});
+
+//MONGO DB MODEL
+const Sites = mongoose.model ('Sites', sitesSchema);
+const monCon = mongoose.connection.readyState;
+
 
 
 //setup
@@ -21,27 +32,71 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-
+//GET THE LOGIN PAGE
 app.get("/", function(req, res) {
     res.render("login");
 });
 
-
-
-
+//GET H0ME/INDEX PAGE
 app.get("/home", function(req, res) {
     res.render("index");
 });
 
+//GET ALL SITES PAGE
+app.get("/home/allsites", function(req, res) {
+    Sites.find()
+    .then(function(doc) {
+        res.render("allsites", {sites: doc})
+    });
+});
 
-
+//GET THE NEW PAGE
 app.get("/home/new", function(req, res) {
     res.render("new");
 });
 
-app.get("/home/allsites", function(req, res) {
-    res.render("allsites");
-})
+//POST TO THE ALL SITES PAGE
+app.post("/home/allsites", function(req, res) {
+    var sitesData = req.body.sitesInfo;
+    var data = new Sites(sitesData);
+    data.save();
+
+    res.redirect("/home/allsites");
+});
+
+app.get("/home/allsites/edit", function(req, res) {
+    res.render("edit");
+});
+//GET THE SITE EDIT PAGE
+app.get("/home/allsites/:id/edit", function(req, res, next) {
+    Sites.findById(req.params.id, function(err, editSite) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("edit", {sites: editSite});
+        }
+    });
+});
+
+//UPDATE THE SITE EDIT
+app.put("/home/sites/:id", function(req, res) {
+    Sites.findOneAndUpdate(req.params.id, req.body.sitesInfo, function(err, updateSite) {
+        if(err) {
+            console.log(err);
+        } else {
+            updateSite.save();
+            res.redirect("/home/allsites");
+        }
+    });
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -109,4 +164,5 @@ app.listen(3000, function() {
     console.log('===========================');
     console.log('Starting the Monitoring App');
     console.log('===========================');
+    console.log(monCon);
 });
