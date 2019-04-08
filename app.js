@@ -89,8 +89,8 @@ app.get("/home/allsites/:id/edit", function(req, res, next) {
 });
 
 //UPDATE THE SITE EDIT
-app.post("/home/sites/:id", function(req, res) {
-    Sites.findOneAndReplace(req.params.id, req.body.sitesInfo, function(err, updateSite) {
+app.post("/home/allsites/:id", function(req, res) {
+    Sites.findOneAndUpdate(req.params.id, req.body.sitesInfo, function(err, updateSite) {
         if(err) {
             console.log(err);
         } else {
