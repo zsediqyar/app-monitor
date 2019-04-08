@@ -14,7 +14,8 @@ mongoose.connect('mongodb://localhost:27017/sites_db');
 //MONGO DB SCHEMA
 const sitesSchema = new mongoose.Schema ({
     name: String,
-    url: String
+    url: String,
+    remarks: String
 });
 
 //MONGO DB MODEL
@@ -64,9 +65,18 @@ app.post("/home/allsites", function(req, res) {
     res.redirect("/home/allsites");
 });
 
-app.get("/home/allsites/edit", function(req, res) {
-    res.render("edit");
+//GET THE SITE INFO PAGE
+app.get("/home/allsites/:id", function(req, res) {
+    Sites.findById(req.params.id, function(err, showSite) {
+        if(err) {
+            console.log(err);
+            res.redirect("/home/allsites");
+        } else {
+            res.render("show", {sites: showSite});
+        }
+    });
 });
+
 //GET THE SITE EDIT PAGE
 app.get("/home/allsites/:id/edit", function(req, res, next) {
     Sites.findById(req.params.id, function(err, editSite) {

@@ -1,0 +1,25 @@
+{{>header}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="center-p new-p">Edit: {{sites.name}}</p>
+
+            <div class="new-form">
+                <form action="/home/allsites/{{sites._id}}?_method=PUT" method="POST" id="newForm">
+                    <div class="form-group">
+                        <input name="sitesInfo[name]" class="form-control" type="text" value="{{site.name}}" placeholder="Site Name">
+                    </div>
+                    <div class="form-group">
+                        <input name="sitesInfo[url]" class="form-control" type="text" value="{{site.url}}" placeholder="Site URL (Include http://)">
+                        <label id="example"><span style="color:#D3461C;">e.g: </span>https://www.example.com</label>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Save Edit</button>
+                        <a href="/home" class="btn btn-danger">Back</a>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>

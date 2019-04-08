@@ -147,7 +147,7 @@ NEW PAGE CUSTOM CSS
     }
 }
 
-.btn.btn-danger {
+.btn.btn-warning {
     background: var(--yellow);
     border-color: var(--yellow);
     width: 100px;
@@ -213,4 +213,79 @@ table {
 .small {
     font-size: 11px !important;
     margin-top: 2em !important;
+}
+
+/*
+SHOW PAGE CUSTOM CSS
+=====================
+*/
+
+#siteDetails {
+    margin-top: 2em;
+}
+#siteDetails h4 {
+    margin-top: 2em;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: var(--red);
+}
+
+.siteInfo label {
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+    padding-left: 10px;
+    margin-bottom: 2px;
+}
+
+.siteInfo p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    width: 100%;
+    background: rgba(0,0,0,0.05);
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.siteInfo {
+    margin-top: 20px;
+}
+
+.siteInfo textarea {
+    width: 100%;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+}
+
+#showButtons {
+    margin-top: 20px;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+#showButtons a {
+    float: left;
+    width: 40px;
+    text-align: center;
+}
+
+#showButtons form {
+    display: inline; 
+    margin-left: 10px;
+}
+
+.btn.btn-danger {
+    background: var(--red) !important;
+    color: rgba(255,255,255,0.9);
+    border-color: var(--red);
+}
+
+.btn.btn-success {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: rgba(255,255,255,0.9);
 }

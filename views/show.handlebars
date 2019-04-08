@@ -1,0 +1,33 @@
+{{>header}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="siteDetails">
+                <h4>Site Details</h4>
+                <div class="siteInfo">
+                    <label for="">Site Name</label>
+                    <p>{{sites.name}}</p>
+                </div>
+                <div class="siteInfo">
+                    <label for="">URL</label>
+                    <p>{{sites.url}}</p>
+                </div>
+                <div class="siteInfo">
+                    <label for="">Remarks</label> <br>
+                    <textarea name="" id="" cols="30" rows="3">{{sites.remarks}}</textarea>
+                </div>
+            </div>
+
+            <div id="showButtons">
+                <span><a class="btn btn-success" href="/home/allsites/{{sites._id}}/edit"><i class="fas fa-edit"></i></a></span>
+                <form action="/home/allsites/{{sites._id}}?method=DELETE" method="POST">
+                    <button role="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
