@@ -102,7 +102,7 @@ app.post("/home/allsites/:id", function(req, res) {
 
 //DELETE THE SITE
 app.post("/home/allsites/:id", function(req, res) {
-    Sites.findOneAndRemove(req.params.id, function(err) {
+    Sites.findOneAndDelete(req.params.id, function(err) {
         if(err) {
             console.log(err);
         } else {

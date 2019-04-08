@@ -13,14 +13,12 @@
                 <hr>
             </div>
             <table>
+    {{#each sites}}
                 <tr>
-                    <td><a href="#">JS Designs</a></td>
+                    <td><a href="/home/allsites/{{this._id}}">{{this.name}}</a></td>
                     <td><i class="fas fa-circle"></i></td>
                 </tr>
-                <tr>
-                    <td><a href="#">Mama Purnis</a></td>
-                    <td><i class="fas fa-circle"></i></td>
-                </tr>
+    {{/each}}
             </table>
             
             <div class="form-submit">
@@ -30,8 +28,3 @@
         </div>
     </div>
 </div>
-{{#each sites}}
-<a href="/home/allsites/{{this._id}}"><p>{{this.name}}</p></a>
-<p>{{this.url}}</p>
-<p>{{this.remarks}}</p>
-{{/each}}
