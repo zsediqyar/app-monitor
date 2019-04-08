@@ -123,8 +123,8 @@ NEW PAGE CUSTOM CSS
 }
 
 #newForm input {
-    border-color: rgba(0,0,0, 0.2) !important;
-    background: rgba(0,0,0, 0.2) !important;
+    border-color: rgba(0,0,0,0.05) !important;
+    background: rgba(0,0,0,0.05) !important;
 }
 #newForm input:focus::placeholder {
     color: var(--red) !important;
@@ -288,4 +288,31 @@ SHOW PAGE CUSTOM CSS
     background: var(--blue);
     border-color: var(--blue);
     color: rgba(255,255,255,0.9);
+}
+
+/*
+EDIT PAGE CUSTOM CSS
+=====================
+*/
+.new-form textarea {
+    width: 100%;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    padding: 12px;
+    font-size: 12px !important;
+    letter-spacing: 1px !important;
+}
+
+.new-form textarea:focus::placeholder {
+    color: var(--red) !important;
+}
+
+textarea:active {
+    border-color: rgba(211,70,28, 0.5) !important;
+}
+textarea:focus{
+    border-color: rgba(211,70,28, 0.5) !important;
+    outline: none;
+    box-shadow: 0 0 0 0.08rem rgba(211,70,28, 0.25) !important;
 }

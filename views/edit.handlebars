@@ -8,11 +8,14 @@
             <div class="new-form">
                 <form action="/home/allsites/{{sites._id}}?_method=PUT" method="POST" id="newForm">
                     <div class="form-group">
-                        <input name="sitesInfo[name]" class="form-control" type="text" value="{{site.name}}" placeholder="Site Name">
+                        <input name="sitesInfo[name]" class="form-control" type="text" value="{{sites.name}}" placeholder="Site Name">
                     </div>
                     <div class="form-group">
-                        <input name="sitesInfo[url]" class="form-control" type="text" value="{{site.url}}" placeholder="Site URL (Include http://)">
+                        <input name="sitesInfo[url]" class="form-control" type="text" value="{{sites.url}}" placeholder="Site URL (Include http://)">
                         <label id="example"><span style="color:#D3461C;">e.g: </span>https://www.example.com</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="" id="" cols="30" rows="3" name="sitesInfo[remarks]" placeholder="Remarks"></textarea>
                     </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary">Save Edit</button>
