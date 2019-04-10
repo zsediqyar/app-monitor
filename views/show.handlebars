@@ -20,10 +20,11 @@
             </div>
 
             <div id="showButtons">
-                <span><a class="btn btn-success" href="/home/allsites/{{sites._id}}/edit"><i class="fas fa-edit"></i></a></span>
+                <span><a class="btn btn-success" href="/home/allsites/{{sites._id}}/edit">Edit</a></span>
                 <form action="/home/allsites/{{sites._id}}?_method=DELETE" method="POST">
-                    <button role="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    <button role="submit" class="btn btn-danger">Delete</button>
                 </form>
+                    <span><a class="btn btn-success" href="/home/allsites">Back</a></span>
             </div>
         </div>
     </div>
