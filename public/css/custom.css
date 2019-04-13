@@ -284,15 +284,22 @@ SHOW PAGE CUSTOM CSS
 #showButtons {
     margin-top: 20px;
     font-size: 20px;
-    letter-spacing: 10px;
+
 }
 
 #showButtons a {
     float: left;
-    width: 40px;
+    width: 60px;
     text-align: center;
+    margin: 0 2px;
 }
 
+.backBtn {
+    background: var(--yellow) !important;
+    outline: var(--yellow) !important;
+    border-color: var(--yellow) !important;
+    color: var(--blue) !important;
+}
 #showButtons form {
     display: inline; 
     margin-left: 10px;
