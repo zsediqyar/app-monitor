@@ -224,8 +224,15 @@ table {
 	color:#FFF;
 	border-radius:50px;
     text-align:center;
-    font-size: 28px;
-	box-shadow: 2px 2px 3px #999;
+    font-size: 30px;
+    box-shadow: 1px 1px 2px #999;
+    transition: all .3s ease-in-out;
+}
+
+.floatingAdd:hover {
+    transform: rotate(180deg) scale(1.2);
+    text-decoration: none;
+    color: white;
 }
 
 /*
