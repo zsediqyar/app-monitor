@@ -260,6 +260,9 @@ SHOW PAGE CUSTOM CSS
     margin-bottom: 2px;
 }
 
+#textAreaP {
+    height: auto;
+}
 .siteInfo p {
     font-size: 18px;
     letter-spacing: 1px;
@@ -280,6 +283,7 @@ SHOW PAGE CUSTOM CSS
     background: rgba(0,0,0,0.05);
     border: none;
 }
+
 
 #showButtons {
     margin-top: 20px;

@@ -16,11 +16,12 @@
     {{#each sites}}
                 <tr>
                     <td><a href="/home/allsites/{{this._id}}">{{this.name}}</a></td>
-                    <td><i class="fas fa-circle"></i></td>
+                    <td><p id="responseResult">{{status}}</p></td>
+                    <td><p id="responseResult">{{status}}</p><i class="fas fa-circle statusColor"></i></td>
                 </tr>
     {{/each}}
             </table>
-            
+
             <div class="form-submit">
                 <a href="/home" class="btn btn-primary">Back</a>
             </div>
@@ -32,3 +33,14 @@
     <span><a href="/home/new" class="floatingAdd" >&plus;</a></span>
 
 </div>
+<script>
+    const circle = document.querySelector(".statusColor")
+    const resp   = document.getElementById("responseResult").innerHTML;
+    if(resp == 200) {
+        circle.style.color = "green";
+    } else {
+        circle.style.color = "red";
+    }
+    
+
+</script>

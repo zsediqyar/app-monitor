@@ -49,9 +49,38 @@ app.get("/home", function(req, res) {
 app.get("/home/allsites", function(req, res) {
     Sites.find()
     .then(function(doc) {
-        res.render("allsites", {sites: doc})
+
+        //get the return query data into an object
+        var siteReturnObj = doc[0].toObject({getters: true});
+        
+        //catch the url property from the object
+        var siteUrl = siteReturnObj.url;
+        var siteUrlsArray = [];
+        siteUrlsArray.push(siteUrl);
+        console.log(siteUrlsArray);
+
+        //handle the request to server
+        request(siteUrl, function(error, response, body) {
+            //catch the response code
+            var resCode = response.statusCode;
+            if(!error && resCode == 200) {
+                console.log(resCode);
+                //render the file and pass the rescode for color response
+                res.render("allsites", {sites: doc, status: resCode});
+            } 
+            
+            else if(resCode != 200) {
+                res.render("allsites", {sites: doc});
+                // res.redirect("/home");
+                console.log("site not found " + resCode);
+                console.log(error);
+                //write the error log to a txt file
+            }
+        });
     });
 });
+
+
 
 //GET THE NEW PAGE
 app.get("/home/new", function(req, res) {
