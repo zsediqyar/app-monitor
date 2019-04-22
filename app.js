@@ -5,6 +5,8 @@ const mongoose   =      require('mongoose');
 const methodOverride =  require('method-override');
 const cron       =      require('node-cron');
 const request    =      require('request');
+const Sites      =      require('./models/sitesSchema'); //DB SCHEMA 
+const router     =      require('./routes');
 
 
 const app = express();
@@ -12,22 +14,14 @@ const app = express();
 //MONGO DB CONNECTION
 mongoose.connect('mongodb://localhost:27017/sites_db');
 
-//MONGO DB SCHEMA
-const sitesSchema = new mongoose.Schema ({
-    name: String,
-    url: String,
-    remarks: String
-});
+
 
 //MONGO DB MODEL
-const Sites = mongoose.model ('Sites', sitesSchema);
 const monCon = mongoose.connection.readyState;
 
 
-
 //setup
-app.engine('handlebars', expHand({defaultLayout: 'main'
-}));
+app.engine('handlebars', expHand({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(methodOverride('_method'))
 app.use(express.static("public"));
@@ -49,37 +43,9 @@ app.get("/home", function(req, res) {
 app.get("/home/allsites", function(req, res) {
     Sites.find()
     .then(function(doc) {
-
-        //get the return query data into an object
-        var siteReturnObj = doc[0].toObject({getters: true});
-        
-        //catch the url property from the object
-        var siteUrl = siteReturnObj.url;
-        var siteUrlsArray = [];
-        siteUrlsArray.push(siteUrl);
-        console.log(siteUrlsArray);
-
-        //handle the request to server
-        request(siteUrl, function(error, response, body) {
-            //catch the response code
-            var resCode = response.statusCode;
-            if(!error && resCode == 200) {
-                console.log(resCode);
-                //render the file and pass the rescode for color response
-                res.render("allsites", {sites: doc, status: resCode});
-            } 
-            
-            else if(resCode != 200) {
-                res.render("allsites", {sites: doc});
-                // res.redirect("/home");
-                console.log("site not found " + resCode);
-                console.log(error);
-                //write the error log to a txt file
-            }
-        });
+        res.render("allsites", {sites: doc});
     });
 });
-
 
 
 //GET THE NEW PAGE
@@ -89,12 +55,22 @@ app.get("/home/new", function(req, res) {
 
 //POST TO THE ALL SITES PAGE
 app.post("/home/allsites", function(req, res) {
+    var siteResponse;
+    var siteStatus = request(req.body.url, function(error, response) {
+        if(!error && response.statusCode == 200) {
+            siteResponse = response.statusCode;
+            console.log("grabbed and saved");
+        } else {
+            console.log(error);
+        }
+    });
+
     var sitesData = req.body.sitesInfo;
     var data = new Sites(sitesData);
     data.save();
-
     res.redirect("/home/allsites");
 });
+
 
 //GET THE SITE INFO PAGE
 app.get("/home/allsites/:id", function(req, res) {
@@ -142,6 +118,10 @@ app.delete("/home/allsites/:id", function(req, res) {
     });
 });
 
+
+app.get("*", function(req, res) {
+    res.send("error! no such page exists");
+});
 
 
 
